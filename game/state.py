@@ -29,7 +29,7 @@ except Exception:
     pass
 cur.close()
 
-from interpret import Game
+from .interpret import Game
 
 
 class StateHandler(object):

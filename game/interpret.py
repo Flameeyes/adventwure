@@ -13,6 +13,8 @@ try:
 except ImportError:
     import pickle
 
+from importlib import resources
+
 DEBUG = False
 
 try:  # Python 2
@@ -75,13 +77,11 @@ asciiFormatRegex = re.compile(r'^(\d+)A(\d+)$')
 commentLine = Line(True, '', False, '')
 
 # code and data
-with open('advdat.77-03-31.txt') as fin:
-    data = fin.read()
+data = resources.read_text(__package__, 'advdat.77-03-31.txt')
 # remove blank line
 data = data.replace('\n\n', '\n')
 
-with open('advf4.77-03-31.txt') as fin:
-    code = fin.read()
+code = resources.read_text(__package__, 'advf4.77-03-31.txt')
 
 # lexical analysis
 
