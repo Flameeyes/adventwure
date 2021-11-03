@@ -935,17 +935,17 @@ class Game(object):
             if expr.op == '.LE.':
                 return (a <= b) * -1
             if expr.op == '.LT.':
-                return (a < b) * -1
+                return (int(a) < int(b)) * -1
             if expr.op == '.GT.':
-                return (a > b) * -1
+                return (int(a) > int(b)) * -1
             if expr.op == '.GE.':
-                return (a >= b) * -1
+                return (int(a) >= int(b)) * -1
             if expr.op == '+':
-                return wrap(a + b)
+                return wrap(int(a) + int(b))
             if expr.op == '-':
-                return wrap(a - b)
+                return wrap(int(a) - int(b))
             if expr.op == '*':
-                return wrap(a * b)
+                return wrap(int(a) * int(b))
             if expr.op == '/':
                 # hack
                 return int(a) / int(b)
